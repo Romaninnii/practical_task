@@ -1,0 +1,59 @@
+
+{
+  "CandidateInfo" : {
+    "firstName": "FirstName",
+    "middleName": "MiddleName",
+    "lastName": "LastName",
+    "email": "email@gmail.com",
+    "contactNumber": "380998877665",
+    "jobVacancy": "Prince",
+    "resume": "" ,
+    "keywords": "Keywords",
+    "comment": "Comment",
+    "dateOfApplication": "2022-03-08"
+  },
+
+  "UpdateCandidateInfo" : {
+    "firstName" : "Boris",
+    "middleName" : "Alexander",
+    "lastName" : "Johnson",
+    "email" : "borisJojnson@gmail.com",
+    "contactNumber" : "+44123456865",
+    "jobVacancy" : "Tod EbertTester",
+    "resume" : "",
+    "keywords" : "Hello everybody",
+    "comment" : "I am Boris Johnson",
+    "dateOfApplication": "2022-07-07"
+  },
+
+  "VacancyInfo" : {
+    "jobTitle" : "AQA",
+    "vacancyName" : "Automation",
+    "hiringManager" : "Alise Daria Berge",
+    "numberOfPositions" : "45",
+    "description" : "description"
+  },
+
+  "UpdateVacancyInfo" : {
+    "jobTitle" : "AQA",
+    "vacancyName" : "QA Administrator",
+    "hiringManager" : "Olya Bilynska",
+    "numberOfPositions" : "144",
+    "description" : "Administrator"
+  },
+
+  "contactDetailsInfo" : {
+    "AddressStreetOne" : "Address Street One",
+    "AddressStreetTwo" : "Address Street Two",
+    "City" : "City",
+    "StateOrProvince" : "State / Province",
+    "ZipOrPostalCode" : "49009",
+    "Country" : "Ukraine",
+    "HomeTelephone" : "5555555",
+    "Mobile" : "66666666",
+    "WorkTelephone" : "77777777",
+    "WorkEmail" : "work@email.com",
+    "OtherEmail" : "other@gmail.com"
+  }
+}
+
