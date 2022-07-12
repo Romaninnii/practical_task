@@ -1,6 +1,6 @@
 
 {
-  "CandidateInfo" : {
+  "candidateInfo" : {
     "firstName": "FirstName",
     "middleName": "MiddleName",
     "lastName": "LastName",
@@ -13,7 +13,7 @@
     "dateOfApplication": "2022-03-08"
   },
 
-  "UpdateCandidateInfo" : {
+  "updateCandidateInfo" : {
     "firstName" : "Boris",
     "middleName" : "Alexander",
     "lastName" : "Johnson",
@@ -26,7 +26,7 @@
     "dateOfApplication": "2022-07-07"
   },
 
-  "VacancyInfo" : {
+  "vacancyInfo" : {
     "jobTitle" : "AQA",
     "vacancyName" : "Automation",
     "hiringManager" : "Alise Daria Berge",
@@ -34,26 +34,26 @@
     "description" : "description"
   },
 
-  "UpdateVacancyInfo" : {
+  "updateVacancyInfo" : {
     "jobTitle" : "AQA",
     "vacancyName" : "QA Administrator",
     "hiringManager" : "Olya Bilynska",
-    "numberOfPositions" : "144",
+    "numberOfPositions" : "99",
     "description" : "Administrator"
   },
 
   "contactDetailsInfo" : {
-    "AddressStreetOne" : "Address Street One",
-    "AddressStreetTwo" : "Address Street Two",
-    "City" : "City",
-    "StateOrProvince" : "State / Province",
-    "ZipOrPostalCode" : "49009",
-    "Country" : "Ukraine",
-    "HomeTelephone" : "5555555",
-    "Mobile" : "66666666",
-    "WorkTelephone" : "77777777",
-    "WorkEmail" : "work@email.com",
-    "OtherEmail" : "other@gmail.com"
+    "addressStreetOne" : "Address Street One",
+    "addressStreetTwo" : "Address Street Two",
+    "city" : "City",
+    "stateOrProvince" : "State / Province",
+    "zipOrPostalCode" : "49009",
+    "country" : "France",
+    "homeTelephone" : "5555555",
+    "mobile" : "66666666",
+    "workTelephone" : "77777777",
+    "workEmail" : "work@email.com",
+    "otherEmail" : "other@gmail.com"
   }
 }
 

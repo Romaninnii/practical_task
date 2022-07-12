@@ -65,10 +65,10 @@ context('Files', () => {
     // generate a fixture file for use later
     cy.request('https://jsonplaceholder.cypress.io/users')
       .then((response) => {
-        cy.writeFile('cypress/fixtures/users.json', response.body)
+        cy.writeFile('cypress/fixtures/loginUsers.json', response.body)
       })
 
-    cy.fixture('users').should((users) => {
+    cy.fixture('loginUsers').should((users) => {
       expect(users[0].name).to.exist
     })
 

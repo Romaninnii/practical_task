@@ -1,0 +1,19 @@
+{
+  "recruitment" : {
+    "candidates" : "Candidates",
+    "vacancies" : "Vacancies"
+  },
+
+  "myInfo" : {
+    "personalDetails" : "Personal Details",
+    "contactDetails" : "Contact Details",
+    "emergencyContacts" : "Emergency Contacts",
+    "dependents": "Dependents",
+    "immigration" : "Immigration",
+    "job" : "Job",
+    "salary" : "Salary",
+    "reportTo" : "Report-to",
+    "qualifications":  "Qualifications",
+    "memberships" : "Memberships"
+  }
+}

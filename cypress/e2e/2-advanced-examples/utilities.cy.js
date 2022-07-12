@@ -48,13 +48,13 @@ context('Utilities', () => {
 
   it('Cypress.minimatch - test out glob patterns against strings', () => {
     // https://on.cypress.io/minimatch
-    let matching = Cypress.minimatch('/users/1/comments', '/users/*/comments', {
+    let matching = Cypress.minimatch('/loginUsers/1/comments', '/loginUsers/*/comments', {
       matchBase: true,
     })
 
     expect(matching, 'matching wildcard').to.be.true
 
-    matching = Cypress.minimatch('/users/1/comments/2', '/users/*/comments', {
+    matching = Cypress.minimatch('/loginUsers/1/comments/2', '/loginUsers/*/comments', {
       matchBase: true,
     })
 
