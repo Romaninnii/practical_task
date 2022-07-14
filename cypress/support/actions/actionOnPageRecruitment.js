@@ -116,6 +116,47 @@ class ActionOnPageRecruitment {
         cy.get('[value="Ok"].btn').should('have.value', 'Ok').click()
     }
 
+    interceptCandidateReview() {
+        cy.intercept({
+            method: 'GET',
+            url: '**/recruitment/addCandidate/id/**'}).as('candidateReview')
+    }
+
+    waitInterceptCandidateReview(candidate) {
+        cy.wait("@candidateReview").then((interception) => {
+            cy.wrap(interception.response.statusCode).should("eq", 200);
+            cy.wrap(interception.response.body).should("include", candidate.firstName);
+            cy.wrap(interception.response.body).should("include", candidate.middleName);
+            cy.wrap(interception.response.body).should("include", candidate.lastName);
+            cy.wrap(interception.response.body).should("include", candidate.email);
+            cy.wrap(interception.response.body).should("include", candidate.contactNumber);
+            cy.wrap(interception.response.body).should("include", candidate.jobVacancy);
+            cy.wrap(interception.response.body).should("include", candidate.keywords);
+            cy.wrap(interception.response.body).should("include", candidate.comment);
+            cy.wrap(interception.response.body).should("include", candidate.dateOfApplication);
+
+        });
+    }
+
+    interceptVacancyReview() {
+        cy.intercept({
+            method: 'GET',
+            url: '**/recruitment/addJobVacancy/Id/**'}).as('vacancyReview')
+    }
+
+    waitInterceptVacancyReview(vacancy) {
+        cy.wait("@vacancyReview").then((interception) => {
+            cy.wrap(interception.response.statusCode).should("eq", 200);
+            cy.wrap(interception.response.body).should("include", vacancy.jobTitle);
+            cy.wrap(interception.response.body).should("include", vacancy.vacancyName);
+            cy.wrap(interception.response.body).should("include", vacancy.hiringManager);
+            cy.wrap(interception.response.body).should("include", vacancy.numberOfPositions);
+            cy.wrap(interception.response.body).should("include", vacancy.description);
+        });
+    }
+
+
+
     addAndFillVacancyReviewFields(vacancy) {
         action.clickOnButtonAdd()
         this.selectVacancyJobTitle(vacancy.jobTitle)
@@ -123,8 +164,10 @@ class ActionOnPageRecruitment {
         this.fillVacancyHiringManagerField(vacancy.hiringManager)
         this.fillVacancyNumberOfPositionsField(vacancy.numberOfPositions)
         this.fillVacancyDescriptionField(vacancy.description)
+        this.interceptVacancyReview()
         action.clickOnButtonSave()
         action.clickOnButtonBack()
+        this.waitInterceptVacancyReview(vacancy)
     }
 
     updateVacancyReviewFields(vacancy) {
@@ -134,8 +177,10 @@ class ActionOnPageRecruitment {
         this.fillVacancyHiringManagerField(vacancy.hiringManager)
         this.fillVacancyNumberOfPositionsField(vacancy.numberOfPositions)
         this.fillVacancyDescriptionField(vacancy.description)
+        this.interceptVacancyReview()
         action.clickOnButtonSave()
         action.clickOnButtonBack()
+        this.waitInterceptVacancyReview(vacancy)
     }
 
     addAndFillCandidateReviewFields (candidate) {
@@ -150,8 +195,10 @@ class ActionOnPageRecruitment {
         this.fillCandidateKeyWordsField(candidate.keywords)
         this.fillCandidateCommentField(candidate.comment)
         this.fillCandidateAppliedDateField(candidate.dateOfApplication)
+        this.interceptCandidateReview()
         action.clickOnButtonSave()
         action.clickOnButtonBack()
+        this.waitInterceptCandidateReview(candidate)
     }
 
     updateCandidateReviewFields (candidate) {
@@ -167,11 +214,13 @@ class ActionOnPageRecruitment {
         this.fillCandidateKeyWordsField(candidate.keywords)
         this.fillCandidateCommentField(candidate.comment)
         this.fillCandidateAppliedDateField(candidate.dateOfApplication)
+        this.interceptCandidateReview()
         action.clickOnButtonSave()
         action.clickOnButtonSaveChanges()
         action.clickOnButtonBack()
-
+        this.waitInterceptCandidateReview(candidate)
     }
+
 }
 
 export default ActionOnPageRecruitment

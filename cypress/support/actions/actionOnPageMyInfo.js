@@ -62,6 +62,29 @@ class ActionOnPageMyInfo {
             .should('have.value', otherEmail)
     }
 
+    interceptContactDetails() {
+        cy.intercept({
+            method: 'GET',
+            url: '**/contactDetails/empNumber/**'}).as('contactDetails')
+    }
+
+    waitInterceptContactDetails(contactDetails) {
+        cy.wait("@contactDetails").then((interception) => {
+            cy.wrap(interception.response.statusCode).should("eq", 200);
+            cy.wrap(interception.response.body).should("include", contactDetails.addressStreetOne);
+            cy.wrap(interception.response.body).should("include", contactDetails.addressStreetTwo);
+            cy.wrap(interception.response.body).should("include", contactDetails.city);
+            cy.wrap(interception.response.body).should("include", contactDetails.stateOrProvince);
+            cy.wrap(interception.response.body).should("include", contactDetails.zipOrPostalCode);
+            cy.wrap(interception.response.body).should("include", contactDetails.country);
+            cy.wrap(interception.response.body).should("include", contactDetails.homeTelephone);
+            cy.wrap(interception.response.body).should("include", contactDetails.mobile);
+            cy.wrap(interception.response.body).should("include", contactDetails.workTelephone);
+            cy.wrap(interception.response.body).should("include", contactDetails.workEmail);
+            cy.wrap(interception.response.body).should("include", contactDetails.otherEmail);
+        });
+    }
+
 
     fillContactDetailsFields(contactDetails) {
         action.clickOnButtonEdit()
@@ -76,8 +99,11 @@ class ActionOnPageMyInfo {
         this.fillWorkTelephoneField(contactDetails.workTelephone)
         this.fillWorkEmailField(contactDetails.workEmail)
         this.fillOtherEmailField(contactDetails.otherEmail)
+        this.interceptContactDetails()
         action.clickOnButtonSave()
+        this.waitInterceptContactDetails(contactDetails)
     }
+
 }
 
 export default ActionOnPageMyInfo
